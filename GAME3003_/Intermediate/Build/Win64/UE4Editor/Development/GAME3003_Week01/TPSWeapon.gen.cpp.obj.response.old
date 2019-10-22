@@ -426,20 +426,20 @@
 /I ThirdParty
 /I ThirdParty\libSampleRate\Public
 /I ThirdParty\libSampleRate
-/I C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01
-/I C:\Users\Ding\Desktop\GAME3003_Week01\Source
-/I C:\Users\Ding\Desktop\GAME3003_Week01\Source\GAME3003_Week01
-/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.23.28105\INCLUDE"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
-/FI"C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\Engine\SharedPCH.Engine.h"
-/Yu"C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\Engine\SharedPCH.Engine.h"
-/Fp"C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\TPSWeapon.gen.cpp"
-/FI"C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\Definitions.GAME3003_Week01.h"
-/Fo"C:\Users\Ding\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\TPSWeapon.gen.cpp.obj"
+/I C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01
+/I C:\Users\gavin\Desktop\GAME3003_Week01\Source
+/I C:\Users\gavin\Desktop\GAME3003_Week01\Source\GAME3003_Week01
+/I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905\INCLUDE"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
+/FI"C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\Engine\SharedPCH.Engine.h"
+/Yu"C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\Engine\SharedPCH.Engine.h"
+/Fp"C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\Engine\SharedPCH.Engine.h.pch"
+"C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\TPSWeapon.gen.cpp"
+/FI"C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\Definitions.GAME3003_Week01.h"
+/Fo"C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\TPSWeapon.gen.cpp.obj"
 /TP
 /GR-
 /W4

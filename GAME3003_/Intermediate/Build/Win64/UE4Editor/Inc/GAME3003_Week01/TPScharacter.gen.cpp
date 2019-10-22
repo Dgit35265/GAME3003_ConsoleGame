@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeTPScharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
 	GAME3003_WEEK01_API UClass* Z_Construct_UClass_UHealthComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	GAME3003_WEEK01_API UClass* Z_Construct_UClass_ATPSWeapon_NoRegister();
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
@@ -116,6 +117,10 @@ void EmptyLinkFunctionForGeneratedCodeTPScharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_deathMaterial_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_deathMaterial;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bDead_MetaData[];
 #endif
 		static void NewProp_bDead_SetBit(void* Obj);
@@ -184,6 +189,13 @@ void EmptyLinkFunctionForGeneratedCodeTPScharacter() {}
 		{ "ModuleRelativePath", "TPScharacter.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATPScharacter_Statics::NewProp_deathMaterial_MetaData[] = {
+		{ "Category", "PlayerProperties" },
+		{ "ModuleRelativePath", "TPScharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATPScharacter_Statics::NewProp_deathMaterial = { "deathMaterial", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATPScharacter, deathMaterial), Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATPScharacter_Statics::NewProp_deathMaterial_MetaData, ARRAY_COUNT(Z_Construct_UClass_ATPScharacter_Statics::NewProp_deathMaterial_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATPScharacter_Statics::NewProp_bDead_MetaData[] = {
 		{ "Category", "PlayerProperties" },
@@ -290,6 +302,7 @@ void EmptyLinkFunctionForGeneratedCodeTPScharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATPScharacter_Statics::NewProp_CameraComp = { "CameraComp", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATPScharacter, CameraComp), Z_Construct_UClass_UCameraComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATPScharacter_Statics::NewProp_CameraComp_MetaData, ARRAY_COUNT(Z_Construct_UClass_ATPScharacter_Statics::NewProp_CameraComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATPScharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPScharacter_Statics::NewProp_deathMaterial,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPScharacter_Statics::NewProp_bDead,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPScharacter_Statics::NewProp_HealthComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPScharacter_Statics::NewProp_bInCover,
@@ -330,7 +343,7 @@ void EmptyLinkFunctionForGeneratedCodeTPScharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATPScharacter, 440550657);
+	IMPLEMENT_CLASS(ATPScharacter, 1429158383);
 	template<> GAME3003_WEEK01_API UClass* StaticClass<ATPScharacter>()
 	{
 		return ATPScharacter::StaticClass();

@@ -70,6 +70,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperties")
 	bool bDead;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PlayerProperties")
+		UMaterialInterface* deathMaterial;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

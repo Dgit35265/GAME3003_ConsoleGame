@@ -17,7 +17,7 @@ class AActor;
 #endif
 #define GAME3003_WEEK01_TPScharacter_generated_h
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged) \
 	{ \
@@ -34,7 +34,7 @@ class AActor;
 	}
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHealthChanged) \
 	{ \
@@ -51,7 +51,7 @@ class AActor;
 	}
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_INCLASS_NO_PURE_DECLS \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATPScharacter(); \
 	friend struct Z_Construct_UClass_ATPScharacter_Statics; \
@@ -60,7 +60,7 @@ public: \
 	DECLARE_SERIALIZER(ATPScharacter)
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_INCLASS \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_INCLASS \
 private: \
 	static void StaticRegisterNativesATPScharacter(); \
 	friend struct Z_Construct_UClass_ATPScharacter_Statics; \
@@ -69,7 +69,7 @@ public: \
 	DECLARE_SERIALIZER(ATPScharacter)
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_STANDARD_CONSTRUCTORS \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ATPScharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATPScharacter) \
@@ -82,7 +82,7 @@ private: \
 public:
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_ENHANCED_CONSTRUCTORS \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ATPScharacter(ATPScharacter&&); \
@@ -93,7 +93,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATPScharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATPScharacter)
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraComp() { return STRUCT_OFFSET(ATPScharacter, CameraComp); } \
 	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ATPScharacter, SpringArmComp); } \
 	FORCEINLINE static uint32 __PPO__bIsAiming() { return STRUCT_OFFSET(ATPScharacter, bIsAiming); } \
@@ -105,28 +105,29 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATPScharacter); \
 	FORCEINLINE static uint32 __PPO__OverlappingCoverVolume() { return STRUCT_OFFSET(ATPScharacter, OverlappingCoverVolume); } \
 	FORCEINLINE static uint32 __PPO__bInCover() { return STRUCT_OFFSET(ATPScharacter, bInCover); } \
 	FORCEINLINE static uint32 __PPO__HealthComp() { return STRUCT_OFFSET(ATPScharacter, HealthComp); } \
-	FORCEINLINE static uint32 __PPO__bDead() { return STRUCT_OFFSET(ATPScharacter, bDead); }
+	FORCEINLINE static uint32 __PPO__bDead() { return STRUCT_OFFSET(ATPScharacter, bDead); } \
+	FORCEINLINE static uint32 __PPO__deathMaterial() { return STRUCT_OFFSET(ATPScharacter, deathMaterial); }
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_15_PROLOG
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_GENERATED_BODY_LEGACY \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_15_PROLOG
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_INCLASS \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_STANDARD_CONSTRUCTORS \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_INCLASS \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_GENERATED_BODY \
+#define GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_INCLASS_NO_PURE_DECLS \
-	GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h_18_ENHANCED_CONSTRUCTORS \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_PRIVATE_PROPERTY_OFFSET \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_INCLASS_NO_PURE_DECLS \
+	GAME3003__Source_GAME3003_Week01_TPScharacter_h_18_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -134,7 +135,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> GAME3003_WEEK01_API UClass* StaticClass<class ATPScharacter>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID GAME3003_Week01_Source_GAME3003_Week01_TPScharacter_h
+#define CURRENT_FILE_ID GAME3003__Source_GAME3003_Week01_TPScharacter_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

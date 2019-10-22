@@ -17,7 +17,7 @@ class AActor;
 #endif
 #define GAME3003_WEEK01_HealthComponent_generated_h
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_9_DELEGATE \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_9_DELEGATE \
 struct _Script_GAME3003_Week01_eventOnHealthChangedSignature_Parms \
 { \
 	UHealthComponent* HealthComp; \
@@ -40,7 +40,7 @@ static inline void FOnHealthChangedSignature_DelegateWrapper(const FMulticastScr
 }
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execHandleTakeAnyDamage) \
 	{ \
@@ -56,7 +56,7 @@ static inline void FOnHealthChangedSignature_DelegateWrapper(const FMulticastScr
 	}
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execHandleTakeAnyDamage) \
 	{ \
@@ -72,7 +72,7 @@ static inline void FOnHealthChangedSignature_DelegateWrapper(const FMulticastScr
 	}
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_INCLASS_NO_PURE_DECLS \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUHealthComponent(); \
 	friend struct Z_Construct_UClass_UHealthComponent_Statics; \
@@ -81,7 +81,7 @@ public: \
 	DECLARE_SERIALIZER(UHealthComponent)
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_INCLASS \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_INCLASS \
 private: \
 	static void StaticRegisterNativesUHealthComponent(); \
 	friend struct Z_Construct_UClass_UHealthComponent_Statics; \
@@ -90,7 +90,7 @@ public: \
 	DECLARE_SERIALIZER(UHealthComponent)
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_STANDARD_CONSTRUCTORS \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UHealthComponent(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UHealthComponent) \
@@ -103,7 +103,7 @@ private: \
 public:
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_ENHANCED_CONSTRUCTORS \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API UHealthComponent(UHealthComponent&&); \
@@ -114,26 +114,26 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHealthComponent); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UHealthComponent)
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_PRIVATE_PROPERTY_OFFSET
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_11_PROLOG
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_GENERATED_BODY_LEGACY \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_PRIVATE_PROPERTY_OFFSET
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_11_PROLOG
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_INCLASS \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_STANDARD_CONSTRUCTORS \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_PRIVATE_PROPERTY_OFFSET \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_INCLASS \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_GENERATED_BODY \
+#define GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_INCLASS_NO_PURE_DECLS \
-	GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h_14_ENHANCED_CONSTRUCTORS \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_PRIVATE_PROPERTY_OFFSET \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_INCLASS_NO_PURE_DECLS \
+	GAME3003__Source_GAME3003_Week01_HealthComponent_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -141,7 +141,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> GAME3003_WEEK01_API UClass* StaticClass<class UHealthComponent>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID GAME3003_Week01_Source_GAME3003_Week01_HealthComponent_h
+#define CURRENT_FILE_ID GAME3003__Source_GAME3003_Week01_HealthComponent_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

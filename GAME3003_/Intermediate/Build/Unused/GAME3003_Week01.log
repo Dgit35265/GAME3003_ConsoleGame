@@ -1,16 +1,14 @@
-﻿  Creating makefile for GAME3003_Week01Editor (ini files are newer than makefile)
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame).
+  Creating makefile for GAME3003_Week01Editor (ini files are newer than makefile)
   Parsing headers for GAME3003_Week01Editor
-    Running UnrealHeaderTool "C:\Users\gavin\Desktop\GAME3003_Week01\GAME3003_Week01.uproject" "C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\GAME3003_Week01Editor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
-  Reflection code generated for GAME3003_Week01Editor in 5.0489474 seconds
+    Running UnrealHeaderTool "C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\GAME3003_Week01.uproject" "C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\GAME3003_Week01Editor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for GAME3003_Week01Editor in 6.5471458 seconds
   Using Visual Studio 2019 14.22.27905 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.22.27905) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 6 actions with 12 processes...
-    [1/6] GAME3003_Week01.cpp
-    [2/6] TPScharacter.cpp
-    [3/6] TPSWeapon.cpp
-    [4/6] UE4Editor-GAME3003_Week01-0001.lib
-       Creating library C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01-0001.lib and object C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01-0001.exp
-    [5/6] UE4Editor-GAME3003_Week01-0001.dll
-       Creating library C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01-0001.suppressed.lib and object C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01-0001.suppressed.exp
-    [6/6] GAME3003_Week01Editor.target
-  Total time in Parallel executor: 2.10 seconds
-  Total execution time: 8.73 seconds
+  Building 3 actions with 12 processes...
+    [1/3] UE4Editor-GAME3003_Week01.lib
+       Creating library C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01.lib and object C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01.exp
+    [2/3] UE4Editor-GAME3003_Week01.dll
+       Creating library C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01.suppressed.lib and object C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\UE4Editor-GAME3003_Week01.suppressed.exp
+    [3/3] GAME3003_Week01Editor.target
+  Total time in Parallel executor: 1.39 seconds
+  Total execution time: 9.99 seconds

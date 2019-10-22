@@ -75,4 +75,14 @@
       <Filter>Source\GAME3003_Week01</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\GAME3003_Week01\Tracker.h">
+      <Filter>Source\GAME3003_Week01</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\GAME3003_Week01\Tracker.cpp">
+      <Filter>Source\GAME3003_Week01</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

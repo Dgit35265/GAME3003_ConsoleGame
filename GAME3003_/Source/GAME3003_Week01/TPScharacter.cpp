@@ -13,6 +13,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "HealthComponent.h"
 #include "GAME3003_Week01.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ATPScharacter::ATPScharacter()
@@ -247,5 +248,7 @@ void ATPScharacter::OnHealthChanged(UHealthComponent* OwningHealthComp, float He
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		DetachFromControllerPendingDestroy();
 		SetLifeSpan(5);
+		GetMesh()->CreateAndSetMaterialInstanceDynamicFromMaterial(0, deathMaterial);
+		GetMesh()->SetScalarParameterValueOnMaterials("StartTime", UGameplayStatics::GetRealTimeSeconds(this));
 	}
 }
