@@ -1,0 +1,9 @@
+C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\Definitions.GAME3003_Week01.h
+C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\gavin\Desktop\GAME3003_Week01\Source\GAME3003_Week01/TPScharacter.h
+C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\gavin\Desktop\GAME3003_Week01\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\TPScharacter.generated.h

@@ -1,0 +1,3 @@
+C:\Users\gavin\Desktop\GAME3003_Week01\Source\GAME3003_Week01\GAME3003_Week01.Build.cs
+C:\Users\gavin\Desktop\GAME3003_Week01\Source\GAME3003_Week01.Target.cs
+C:\Users\gavin\Desktop\GAME3003_Week01\Source\GAME3003_Week01Editor.Target.cs
