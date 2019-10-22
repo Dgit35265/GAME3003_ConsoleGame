@@ -6,6 +6,8 @@
 #include "GameFramework/Pawn.h"
 #include "Tracker.generated.h"
 
+class UNavigationSystemV1;
+
 UCLASS()
 class GAME3003_WEEK01_API ATracker : public APawn
 {
@@ -21,6 +23,16 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tracker Properties")
 	UStaticMeshComponent* MeshComp;
+		
+	UNavigationSystemV1* navSystem;
+
+	FVector NextPoint;
+	FVector GetNextPoint();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tracker Properties")
+	float MoveForce;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tracker Properties")
+	bool bUseVelocityChange;
 
 public:	
 	// Called every frame

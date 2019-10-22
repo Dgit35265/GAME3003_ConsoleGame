@@ -13,9 +13,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define GAME3003_WEEK01_Tracker_generated_h
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_RPC_WRAPPERS
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_RPC_WRAPPERS_NO_PURE_DECLS
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_INCLASS_NO_PURE_DECLS \
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_RPC_WRAPPERS
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_RPC_WRAPPERS_NO_PURE_DECLS
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATracker(); \
 	friend struct Z_Construct_UClass_ATracker_Statics; \
@@ -24,7 +24,7 @@ public: \
 	DECLARE_SERIALIZER(ATracker)
 
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_INCLASS \
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_INCLASS \
 private: \
 	static void StaticRegisterNativesATracker(); \
 	friend struct Z_Construct_UClass_ATracker_Statics; \
@@ -33,7 +33,7 @@ public: \
 	DECLARE_SERIALIZER(ATracker)
 
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_STANDARD_CONSTRUCTORS \
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ATracker(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATracker) \
@@ -46,7 +46,7 @@ private: \
 public:
 
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_ENHANCED_CONSTRUCTORS \
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ATracker(ATracker&&); \
@@ -57,29 +57,31 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATracker); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATracker)
 
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_PRIVATE_PROPERTY_OFFSET \
-	FORCEINLINE static uint32 __PPO__MeshComp() { return STRUCT_OFFSET(ATracker, MeshComp); }
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__MeshComp() { return STRUCT_OFFSET(ATracker, MeshComp); } \
+	FORCEINLINE static uint32 __PPO__MoveForce() { return STRUCT_OFFSET(ATracker, MoveForce); } \
+	FORCEINLINE static uint32 __PPO__bUseVelocityChange() { return STRUCT_OFFSET(ATracker, bUseVelocityChange); }
 
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_9_PROLOG
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_GENERATED_BODY_LEGACY \
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_11_PROLOG
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_PRIVATE_PROPERTY_OFFSET \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_RPC_WRAPPERS \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_INCLASS \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_STANDARD_CONSTRUCTORS \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_PRIVATE_PROPERTY_OFFSET \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_RPC_WRAPPERS \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_INCLASS \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GAME3003__Source_GAME3003_Week01_Tracker_h_12_GENERATED_BODY \
+#define GAME3003__Source_GAME3003_Week01_Tracker_h_14_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_PRIVATE_PROPERTY_OFFSET \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_INCLASS_NO_PURE_DECLS \
-	GAME3003__Source_GAME3003_Week01_Tracker_h_12_ENHANCED_CONSTRUCTORS \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_PRIVATE_PROPERTY_OFFSET \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_INCLASS_NO_PURE_DECLS \
+	GAME3003__Source_GAME3003_Week01_Tracker_h_14_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

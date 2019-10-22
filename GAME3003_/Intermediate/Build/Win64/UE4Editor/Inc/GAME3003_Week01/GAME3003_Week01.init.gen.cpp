@@ -25,7 +25,7 @@ void EmptyLinkFunctionForGeneratedCodeGAME3003_Week01_init() {}
 				SingletonFuncArray,
 				ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xF5CCB57A,
+				0xEE544013,
 				0xFCBAB573,
 				METADATA_PARAMS(nullptr, 0)
 			};
