@@ -13,7 +13,9 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "HealthComponent.h"
 #include "GAME3003_Week01.h"
+#include "TimerManager.h"
 #include "Kismet/GameplayStatics.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 ATPScharacter::ATPScharacter()
@@ -45,7 +47,8 @@ void ATPScharacter::BeginPlay()
 	if (CurrentWeapon)
 	{
 		CurrentWeapon->SetOwner(this);
-		CurrentWeapon->AttachToComponent(Cast<USceneComponent>(GetMesh()), FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponSocketName);
+		CurrentWeapon->AttachToComponent(Cast<USceneComponent>(GetMesh()), 
+			FAttachmentTransformRules::SnapToTargetNotIncludingScale, WeaponSocketName);
 	}
 }
 
@@ -73,7 +76,6 @@ void ATPScharacter::Tick(float DeltaTime)
 	{
 		GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
 	}
-
 }
 
 // Called to bind functionality to input
@@ -239,6 +241,12 @@ void ATPScharacter::SwitchMode()
 	}
 }
 
+void ATPScharacter::DetachWeapon()
+{
+	CurrentWeapon->MeshComp->SetSimulatePhysics(true);
+	CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
+}
+
 void ATPScharacter::OnHealthChanged(UHealthComponent* OwningHealthComp, float Health, float DeltaHealth, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser) 
 {
 	if (Health <= 0)
@@ -248,6 +256,7 @@ void ATPScharacter::OnHealthChanged(UHealthComponent* OwningHealthComp, float He
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		DetachFromControllerPendingDestroy();
 		SetLifeSpan(5);
+		GetWorldTimerManager().SetTimer(WeaponDetachTimer, this, &ATPScharacter::DetachWeapon, 3, false, 0.2f);
 		GetMesh()->CreateAndSetMaterialInstanceDynamicFromMaterial(0, deathMaterial);
 		GetMesh()->SetScalarParameterValueOnMaterials("StartTime", UGameplayStatics::GetRealTimeSeconds(this));
 	}

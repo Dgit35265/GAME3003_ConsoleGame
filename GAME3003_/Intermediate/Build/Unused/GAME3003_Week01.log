@@ -1,6 +1,0 @@
-﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame).
-  Parsing headers for GAME3003_Week01Editor
-    Running UnrealHeaderTool "C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\GAME3003_Week01.uproject" "C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\GAME3003_Week01Editor\Development\GAME3003_Week01Editor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
-  Reflection code generated for GAME3003_Week01Editor in 5.0718956 seconds
-  Target is up to date
-  Total execution time: 5.60 seconds

@@ -1,3 +1,0 @@
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01\GAME3003_Week01.Build.cs
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01.Target.cs
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01Editor.Target.cs

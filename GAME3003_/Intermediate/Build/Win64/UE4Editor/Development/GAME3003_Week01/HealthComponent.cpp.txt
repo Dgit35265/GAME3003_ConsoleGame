@@ -1,3 +1,0 @@
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\Definitions.GAME3003_Week01.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01\HealthComponent.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\HealthComponent.generated.h

@@ -53,25 +53,31 @@ protected:
 	bool bInCover;
 	float dt;
 
+	UFUNCTION(BlueprintCallable)
 	void StartZoom();
+	UFUNCTION(BlueprintCallable)
 	void EndZoom();
 	void FireWeapon();
+	UFUNCTION(BlueprintCallable)
 	void StartFire();
+	UFUNCTION(BlueprintCallable)
 	void StopFire();
+	UFUNCTION(BlueprintCallable)
 	void TakeCover();
 	void SwitchMode();
 
 	// Health Params
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UHealthComponent* HealthComp;
-
 	UFUNCTION()
 	void OnHealthChanged(UHealthComponent* OwningHealthComp, float Health, float DeltaHealth, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperties")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperites")
 	bool bDead;
+	FTimerHandle WeaponDetachTimer;
+	void DetachWeapon();
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PlayerProperties")
-		UMaterialInterface* deathMaterial;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PlayerProperites")
+	UMaterialInterface* deathMaterial;
 
 public:	
 	// Called every frame
@@ -79,6 +85,5 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	FVector GetPawnViewLocation() const override;
 };

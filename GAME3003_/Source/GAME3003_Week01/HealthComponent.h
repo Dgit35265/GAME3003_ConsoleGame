@@ -16,12 +16,12 @@ class GAME3003_WEEK01_API UHealthComponent : public UActorComponent
 public:
 	// Sets default values for this component's properties
 	UHealthComponent();
+	float GetHealth() const;
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
@@ -35,7 +35,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "HealthComponent")
 		void HandleTakeAnyDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
 
+public:
 	UPROPERTY(BlueprintAssignable, Category = "Events")
-		FOnHealthChangedSignature OnHealthChanged;
+	FOnHealthChangedSignature OnHealthChanged;
 };
 

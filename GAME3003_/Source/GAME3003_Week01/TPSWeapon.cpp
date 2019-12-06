@@ -10,11 +10,15 @@
 #include "TimerManager.h"
 #include "PhysicalMaterials/PhysicalMaterial.h"
 #include "GAME3003_Week01.h"
+#include "Sound/SoundCue.h"
 
 int32 DebugDrawWeapons = 0;
 
-FAutoConsoleVariableRef CVADrawWeapons = FAutoConsoleVariableRef(TEXT("TPS.DebugDrawWeapons"), DebugDrawWeapons, TEXT("Draw Debuge Weapon Line Trace"), ECVF_Cheat);
-
+FAutoConsoleVariableRef CVADrawWeapons = FAutoConsoleVariableRef(
+	TEXT("TPS.DebugDrawWeapons"), 
+	DebugDrawWeapons, 
+	TEXT("Draw Debuge Weapon Line Trace"), 
+	ECVF_Cheat);
 
 // Sets default values
 ATPSWeapon::ATPSWeapon()
@@ -25,7 +29,6 @@ ATPSWeapon::ATPSWeapon()
 	MeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Mesh Comp"));
 	RootComponent = (USceneComponent*)MeshComp;
 	TrailEffectParam = "BeamEnd";
-
 }
 
 // Called when the game starts or when spawned
@@ -85,11 +88,19 @@ void ATPSWeapon::Fire()
 			curSpread *= bulletSpreadAcc;
 			if (curSpread > 400.f)
 				curSpread = 400.f;
+			//UE_LOG(LogTemp, Warning, TEXT("CurrentSpread: %s"), *FString::SanitizeFloat(curSpread));
+			/*UE_LOG(LogTemp, Warning, TEXT("TraceEndX: %s"), *FString::SanitizeFloat(traceEnd.X));
+			UE_LOG(LogTemp, Warning, TEXT("TraceEndY: %s"), *FString::SanitizeFloat(traceEnd.Y));
+			UE_LOG(LogTemp, Warning, TEXT("TraceEndZ: %s"), *FString::SanitizeFloat(traceEnd.Z));*/
+			UE_LOG(LogTemp, Warning, TEXT("TraceEndLeftAndRight: %s"), *FString::SanitizeFloat(traceEndLR.Y));
+			UE_LOG(LogTemp, Warning, TEXT("TraceEndUpAndDown: %s"), *FString::SanitizeFloat(traceEndUD.Z));
 
 			traceEndLR *= r1;
 			traceEndUD *= r2;
+
+
 			
-			traceEnd += (traceEndLR + traceEndUD);
+			//traceEnd += (traceEndLR + traceEndUD);
 
 			FVector trailEnd = traceEnd;
 
@@ -143,6 +154,9 @@ void ATPSWeapon::Fire()
 			}
 
 			FVector MuzzlePosition = MeshComp->GetSocketLocation(MuzzleSocket);
+
+			//spawn gun fire SFX at muzzlePos
+			UGameplayStatics::SpawnSoundAtLocation(this, GunFireSound, MuzzlePosition);
 
 			if (TrailEffect)
 			{

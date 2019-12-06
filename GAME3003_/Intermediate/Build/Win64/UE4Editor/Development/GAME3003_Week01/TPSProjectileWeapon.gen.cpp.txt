@@ -1,9 +1,0 @@
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Development\GAME3003_Week01\Definitions.GAME3003_Week01.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01/TPSProjectileWeapon.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01\TPSWeapon.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\TPSWeapon.generated.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Source\GAME3003_Week01\TPSProjectile.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\TPSProjectile.generated.h
-C:\Users\gavin\OneDrive\Doucment\GitHub\GAME3003_ConsoleGame\GAME3003_\Intermediate\Build\Win64\UE4Editor\Inc\GAME3003_Week01\TPSProjectileWeapon.generated.h

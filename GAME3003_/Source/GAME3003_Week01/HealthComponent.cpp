@@ -3,6 +3,7 @@
 
 #include "HealthComponent.h"
 #include "GameFramework/Actor.h"
+#include "Engine/Engine.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -12,6 +13,11 @@ UHealthComponent::UHealthComponent()
 	PrimaryComponentTick.bCanEverTick = true;
 
 	// ...
+}
+
+float UHealthComponent::GetHealth() const
+{
+	return Health;
 }
 
 
@@ -40,7 +46,7 @@ void UHealthComponent::HandleTakeAnyDamage(AActor* DamagedActor, float Damage, c
 	Health = FMath::Clamp(Health - Damage, 0.0f, MaxHealth);
 	OnHealthChanged.Broadcast(this, Health, Damage, DamageType, InstigatedBy, DamageCauser);
 
-	UE_LOG(LogTemp, Log, TEXT("Health Changed %s"), *FString::SanitizeFloat(Health));
+	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health Changed %f" + FString::SanitizeFloat(Health));
 }
 
 

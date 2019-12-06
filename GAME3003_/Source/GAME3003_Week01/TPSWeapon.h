@@ -7,6 +7,7 @@
 #include "TPSWeapon.generated.h"
 
 class UCameraShake;
+class USoundCue;
 
 UCLASS()
 class GAME3003_WEEK01_API ATPSWeapon : public AActor
@@ -20,9 +21,6 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay();
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	USkeletalMeshComponent* MeshComp;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	TSubclassOf<UDamageType> damageType;
@@ -51,6 +49,8 @@ protected:
 	float BaseDamege = 20;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	float DamageMultiplier = 4;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	USoundCue* GunFireSound;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	TSubclassOf<UCameraShake> FireCameraShake;
@@ -63,11 +63,13 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	int ammo = 100;
 	float baseBulletSpread = 80.f;
-	float bulletSpreadAcc = 1.15f;
+	float bulletSpreadAcc = 1.05f;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	float curSpread;
 
 public:	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USkeletalMeshComponent* MeshComp;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
