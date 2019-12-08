@@ -46,7 +46,7 @@ void UHealthComponent::HandleTakeAnyDamage(AActor* DamagedActor, float Damage, c
 	Health = FMath::Clamp(Health - Damage, 0.0f, MaxHealth);
 	OnHealthChanged.Broadcast(this, Health, Damage, DamageType, InstigatedBy, DamageCauser);
 
-	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health Changed %f" + FString::SanitizeFloat(Health));
+	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health Changed " + FString::SanitizeFloat(Health));
 }
 
 
@@ -58,3 +58,16 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 	// ...
 }
 
+void UHealthComponent::RegenerateHealth()
+{
+	if (Health < MaxHealth)
+	{
+		Health += RegenerateRate;
+		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health Changed " + FString::SanitizeFloat(Health));
+		GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Red, "RegenerateRate " + FString::SanitizeFloat(RegenerateRate));
+	}
+	else
+	{
+		Health = MaxHealth;
+	}
+}

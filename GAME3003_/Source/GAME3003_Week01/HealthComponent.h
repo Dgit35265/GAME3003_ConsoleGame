@@ -32,8 +32,14 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "HealthComponent")
 		float MaxHealth;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "HealthComponent")
+		float RegenerateRate;
+
 	UFUNCTION(BlueprintCallable, Category = "HealthComponent")
 		void HandleTakeAnyDamage(AActor* DamagedActor, float Damage, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
+
+	UFUNCTION(BlueprintCallable, Category = "HealthComponent")
+		void RegenerateHealth();
 
 public:
 	UPROPERTY(BlueprintAssignable, Category = "Events")

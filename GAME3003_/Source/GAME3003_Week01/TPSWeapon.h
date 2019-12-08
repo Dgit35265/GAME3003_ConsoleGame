@@ -46,10 +46,6 @@ protected:
 	FTimerHandle BulletTimer;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
-	float BaseDamege = 20;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
-	float DamageMultiplier = 4;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	USoundCue* GunFireSound;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
@@ -79,4 +75,9 @@ public:
 	void StopFire();
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	void SwitchMode();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	float BaseDamege = 20;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	float DamageMultiplier = 4;
 };

@@ -16,6 +16,7 @@
 #include "TimerManager.h"
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
+#include "TPSGameModeBase.h"
 
 // Sets default values
 ATPScharacter::ATPScharacter()
@@ -225,6 +226,7 @@ void ATPScharacter::TakeCover()
 			{
 				FVector targetLocation = HitResult.Location;
 				targetLocation -= OverlappingCoverVolume->GetForwardVector() * GetCapsuleComponent()->GetScaledCapsuleRadius();
+				DrawDebugSphere(GetWorld(), targetLocation, 10, 24, FColor::Yellow, false, 5, 0, 2);
 				SetActorLocation(targetLocation);
 
 				bInCover = true;
@@ -247,10 +249,26 @@ void ATPScharacter::DetachWeapon()
 	CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
 }
 
+void ATPScharacter::ScoringSystem(float LastDamage)
+{
+	/*Get Normal Kill or Headshot Kill Score*/
+	if (LastDamage == CurrentWeapon->BaseDamege)
+	{
+		KillScore = 10;
+	}
+	else if (LastDamage == CurrentWeapon->BaseDamege * CurrentWeapon->DamageMultiplier)
+	{
+		KillScore = 50;
+	}
+	AddScore();
+}
+
 void ATPScharacter::OnHealthChanged(UHealthComponent* OwningHealthComp, float Health, float DeltaHealth, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser) 
 {
 	if (Health <= 0)
 	{
+		ScoringSystem(DeltaHealth);
+		playerDead();
 		bDead = true;
 		GetMovementComponent()->StopMovementImmediately();
 		GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -259,5 +277,11 @@ void ATPScharacter::OnHealthChanged(UHealthComponent* OwningHealthComp, float He
 		GetWorldTimerManager().SetTimer(WeaponDetachTimer, this, &ATPScharacter::DetachWeapon, 3, false, 0.2f);
 		GetMesh()->CreateAndSetMaterialInstanceDynamicFromMaterial(0, deathMaterial);
 		GetMesh()->SetScalarParameterValueOnMaterials("StartTime", UGameplayStatics::GetRealTimeSeconds(this));
+	}
+	else
+	{
+		//Stop and Prepare Regenerating Health
+		StopRegenerate = true;
+		PrepareRegenerating();
 	}
 }

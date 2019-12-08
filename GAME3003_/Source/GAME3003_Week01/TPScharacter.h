@@ -67,7 +67,7 @@ protected:
 	void SwitchMode();
 
 	// Health Params
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Health Component")
 	UHealthComponent* HealthComp;
 	UFUNCTION()
 	void OnHealthChanged(UHealthComponent* OwningHealthComp, float Health, float DeltaHealth, const class UDamageType* DamageType, class AController* InstigatedBy, AActor* DamageCauser);
@@ -75,7 +75,20 @@ protected:
 	bool bDead;
 	FTimerHandle WeaponDetachTimer;
 	void DetachWeapon();
+	UFUNCTION(BlueprintImplementableEvent, Category = "Health Component")
+	void playerDead();
+	UFUNCTION(BlueprintImplementableEvent, Category = "HealthComponent")
+	void PrepareRegenerating();
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "WeaponProperites")
+	bool StopRegenerate;
 
+	//Get Score by Killing Enemy
+	UFUNCTION(BlueprintCallable, Category = "Scoring System")
+	void ScoringSystem(float LastDamage);
+	UFUNCTION(BlueprintImplementableEvent, Category = "Scoring System")
+	void AddScore();
+	UPROPERTY(BlueprintReadOnly, Category = "Scoring System")
+	int KillScore;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PlayerProperites")
 	UMaterialInterface* deathMaterial;
 

@@ -36,6 +36,7 @@ void ATPSWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 
+	curSpread = baseBulletSpread;
 	WeaponMode = SingleFire; // Initialize the weapon mode
 }
 
@@ -86,8 +87,8 @@ void ATPSWeapon::Fire()
 			float r1 = FMath::FRandRange(-curSpread, curSpread);
 			float r2 = FMath::FRandRange(-curSpread, curSpread);
 			curSpread *= bulletSpreadAcc;
-			if (curSpread > 400.f)
-				curSpread = 400.f;
+			if (curSpread > 200.f)
+				curSpread = 200.f;
 			//UE_LOG(LogTemp, Warning, TEXT("CurrentSpread: %s"), *FString::SanitizeFloat(curSpread));
 			/*UE_LOG(LogTemp, Warning, TEXT("TraceEndX: %s"), *FString::SanitizeFloat(traceEnd.X));
 			UE_LOG(LogTemp, Warning, TEXT("TraceEndY: %s"), *FString::SanitizeFloat(traceEnd.Y));
@@ -118,7 +119,6 @@ void ATPSWeapon::Fire()
 
 				EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Cast<UPhysicalMaterial>(HitResult.PhysMaterial));
 				UParticleSystem* ImpactEffectToPlay = NULL;
-
 
 				float DamageToApply = BaseDamege;
 
