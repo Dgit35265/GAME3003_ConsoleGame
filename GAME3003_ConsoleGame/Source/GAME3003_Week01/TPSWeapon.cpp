@@ -79,7 +79,7 @@ void ATPSWeapon::Fire()
 
 			MyOwner->GetActorEyesViewPoint(EyeLoc, EyeRot);
 
-			FVector traceEnd = EyeLoc + (10000 * EyeRot.Vector());
+			FVector traceEnd = EyeLoc + (FireRange * EyeRot.Vector());
 
 			FVector traceEndLR = FVector::CrossProduct(traceEnd, FVector::UpVector).GetSafeNormal();
 			FVector traceEndUD = FVector::CrossProduct(traceEnd, FVector::RightVector).GetSafeNormal();
@@ -101,7 +101,7 @@ void ATPSWeapon::Fire()
 
 
 			
-			//traceEnd += (traceEndLR + traceEndUD);
+			traceEnd += (traceEndLR + traceEndUD);
 
 			FVector trailEnd = traceEnd;
 

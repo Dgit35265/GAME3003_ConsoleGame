@@ -58,6 +58,7 @@ protected:
 	float rateOfFire = 6; // set fire rate
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	int ammo = 100;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
 	float baseBulletSpread = 80.f;
 	float bulletSpreadAcc = 1.05f;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
@@ -80,4 +81,6 @@ public:
 	float BaseDamege = 20;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	float DamageMultiplier = 4;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon")
+	float FireRange;
 };
