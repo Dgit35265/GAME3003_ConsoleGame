@@ -51,7 +51,10 @@ protected:
 	UBoxComponent* OverlappingCoverVolume;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "CoverProperites")
 	bool bInCover;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "CoverProperites")
+	float CoverTime;
 	float dt;
+	bool CoverTimerStart;
 
 	UFUNCTION(BlueprintCallable)
 	void StartZoom();

@@ -77,6 +77,15 @@ void ATPScharacter::Tick(float DeltaTime)
 	{
 		GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
 	}
+	//Cover Timer Implement
+	if(CoverTimerStart)
+	{
+		CoverTime += DeltaTime;
+	}
+	else
+	{
+		CoverTime = 0;
+	}
 }
 
 // Called to bind functionality to input
@@ -215,9 +224,11 @@ void ATPScharacter::TakeCover()
 		if (bInCover)
 		{
 			bInCover = false;
+			CoverTimerStart = false;//stop the cover timer
 		}
 		else
 		{
+			CoverTimerStart = true;//start the cover timer
 			FVector lineTraceStart = GetActorLocation();
 			FVector lineTraceEnd = GetActorLocation() + OverlappingCoverVolume->GetForwardVector() * 10000;
 			FHitResult HitResult;
