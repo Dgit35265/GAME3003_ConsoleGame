@@ -59,7 +59,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon", meta = (ClampMin = 0, ClampMax = 1))
 	float accuracy;
 	FTimerHandle BulletTimer;
-
+public:
+	inline FTimerHandle const& GetBulletTimer() { return BulletTimer; };
+	
+protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	float BaseDamage = 20;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")

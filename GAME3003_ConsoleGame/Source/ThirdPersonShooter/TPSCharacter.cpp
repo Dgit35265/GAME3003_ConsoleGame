@@ -34,24 +34,15 @@ void ATPSCharacter::BeginPlay()
 	FActorSpawnParameters spawnParams;
 	spawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-	Weapon1 = GetWorld()->SpawnActor<ATPSWeapon>(StarterWeaponClass1, spawnParams);
-	if (Weapon1)
+	for (auto weaponClass : StarterWeaponClasses)
 	{
-		Weapon1->SetOwner(this);
-		SlotWeapon1();
-	}
-	Weapon2 = GetWorld()->SpawnActor<ATPSWeapon>(StarterWeaponClass2, spawnParams);
-	if (Weapon2)
-	{
-		Weapon2->SetOwner(this);
-		SlotWeapon2();
+		auto weapon = GetWorld()->SpawnActor<ATPSWeapon>(weaponClass, spawnParams);
+		weapon->SetOwner(this);
+		Weapons.Add(weapon);
 	}
 
-	CurrentWeapon = Weapon1;
-	if (CurrentWeapon)
-	{
-		EquipCurrentWeapon();
-	}
+	currentWeaponSlot = 0;
+	EquipWeaponAtSlot(currentWeaponSlot);
 }
 
 // Called every frame
@@ -118,9 +109,75 @@ void ATPSCharacter::EndCrouch()
 	UnCrouch();
 }
 
+void ATPSCharacter::EquipWeaponAtCurrentSlot()
+{
+	bool weaponWasFiring = false;
+	if (CurrentWeapon->GetBulletTimer().IsValid())
+	{
+		EndFire();
+		weaponWasFiring = true;
+	}
+	EquipWeaponAtSlot(currentWeaponSlot);
+	if (weaponWasFiring)
+	{
+		StartFire();
+	}
+	currentWeaponState = WeaponState::Switching;
+}
+
 void ATPSCharacter::EquipWeaponAtSlot(int slot)
 {
+	if (slot >= Weapons.Num())
+	{
+		return;
+	}
 
+	for (int i = 0; i < Weapons.Num(); i++)
+	{
+		if (i != slot)
+		{
+			Weapons[i]->AttachToComponent(Cast<USceneComponent>(GetMesh()),
+				FAttachmentTransformRules::SnapToTargetNotIncludingScale,
+				WeaponSlotSocketNames[i]);
+		}
+	}
+	CurrentWeapon = Weapons[slot];
+	CurrentWeapon->AttachToComponent(Cast<USceneComponent>(GetMesh()),
+		FAttachmentTransformRules::SnapToTargetNotIncludingScale,
+		HandSocketName);
+}
+
+void ATPSCharacter::FinishSwitching()
+{
+	if (currentWeaponState == WeaponState::Switching)
+	{
+		currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid() ? WeaponState::Shooting : WeaponState::Idle;
+	}
+}
+
+void ATPSCharacter::NextWeapon()
+{
+	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
+	{
+		currentWeaponSlot++;
+		currentWeaponSlot = currentWeaponSlot % Weapons.Num();
+		bPlaySwitchAnim = true;
+		currentWeaponState = WeaponState::Switching;
+	}
+}
+
+void ATPSCharacter::PreviousWeapon()
+{
+	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
+	{
+		currentWeaponSlot--;
+		if (currentWeaponSlot < 0)
+		{
+			currentWeaponSlot += Weapons.Num();
+		}
+		bPlaySwitchAnim = true;
+		currentWeaponState = WeaponState::Switching;
+	}
 }
 
 void ATPSCharacter::StartZoom()
@@ -143,8 +200,9 @@ void ATPSCharacter::FireWeapon()
 
 void ATPSCharacter::StartFire()
 {
-	if (CurrentWeapon)
+	if (CurrentWeapon && currentWeaponState == WeaponState::Idle)
 	{
+		currentWeaponState = WeaponState::Shooting;
 		CurrentWeapon->StartFire();
 	}
 }
@@ -154,6 +212,10 @@ void ATPSCharacter::EndFire()
 	if (CurrentWeapon)
 	{
 		CurrentWeapon->EndFire();
+	}
+	if (currentWeaponState == WeaponState::Shooting)
+	{
+		currentWeaponState = WeaponState::Idle;
 	}
 }
 
@@ -188,7 +250,11 @@ void ATPSCharacter::DetatchWeapon()
 }
 void ATPSCharacter::PlayReloadAnim()
 {
-	bPlayReloadAnimFlag = true;
+	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
+	{
+		bPlayReloadAnimFlag = true;
+		currentWeaponState = WeaponState::Reloading;
+	}
 }
 void ATPSCharacter::ReloadAnimStarted()
 {
@@ -197,9 +263,10 @@ void ATPSCharacter::ReloadAnimStarted()
 
 void ATPSCharacter::FinishReload()
 {
-	if (CurrentWeapon)
+	if (currentWeaponState == WeaponState::Reloading && CurrentWeapon)
 	{
 		CurrentWeapon->Reload();
+		currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid() ? WeaponState::Shooting : WeaponState::Idle;
 	}
 }
 

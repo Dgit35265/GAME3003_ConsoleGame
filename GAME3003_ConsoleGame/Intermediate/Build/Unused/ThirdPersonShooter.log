@@ -1,0 +1,29 @@
+﻿  Using 'git status' to determine working set for adaptive non-unity build (C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame).
+  Parsing headers for ThirdPersonShooterEditor
+    Running UnrealHeaderTool "C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\ThirdPersonShooter.uproject" "C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\ThirdPersonShooterEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -installed
+  Reflection code generated for ThirdPersonShooterEditor in 5.155272 seconds
+  Building ThirdPersonShooterEditor...
+  Using Visual Studio 2019 14.24.28315 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314) and Windows 10.0.18362.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  [Upgrade]
+  [Upgrade] Using backward-compatible build settings. The latest version of UE4 sets the following values by default, which may require code changes:
+  [Upgrade]     bLegacyPublicIncludePaths = false                 => Omits subfolders from public include paths to reduce compiler command line length. (Previously: true).
+  [Upgrade]     ShadowVariableWarningLevel = WarningLevel.Error   => Treats shadowed variable warnings as errors. (Previously: WarningLevel.Warning).
+  [Upgrade]     PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs   => Set in build.cs files to enables IWYU-style PCH model. See https://docs.unrealengine.com/en-US/Programming/BuildTools/UnrealBuildTool/IWYU/index.html. (Previously: PCHUsageMode.UseSharedPCHs).
+  [Upgrade] Suppress this message by setting 'DefaultBuildSettings = BuildSettingsVersion.V2;' in ThirdPersonShooterEditor.Target.cs, and explicitly overriding settings that differ from the new defaults.
+  [Upgrade]
+  Building 5 actions with 16 processes...
+    [1/5] TPSWeapon.cpp
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Core\Public\Containers/EnumAsByte.h(19): warning C4996: 'TEnumAsByte_EnumClass<true>': TEnumAsByte is not intended for use with enum classes - please derive your enum class from uint8 instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Core\Public\Containers/EnumAsByte.h(10): note: see declaration of 'TEnumAsByte_EnumClass<true>'
+    C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter\TPSCharacter.h(63): note: see reference to class template instantiation 'TEnumAsByte<WeaponState>' being compiled
+    [2/5] TPSCharacter.cpp
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Core\Public\Containers/EnumAsByte.h(19): warning C4996: 'TEnumAsByte_EnumClass<true>': TEnumAsByte is not intended for use with enum classes - please derive your enum class from uint8 instead. Please update your code to the new API before upgrading to the next release, otherwise your project will no longer compile.
+    C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Core\Public\Containers/EnumAsByte.h(10): note: see declaration of 'TEnumAsByte_EnumClass<true>'
+    C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter\TPSCharacter.h(63): note: see reference to class template instantiation 'TEnumAsByte<WeaponState>' being compiled
+    [3/5] UE4Editor-ThirdPersonShooter.lib
+       Creating library C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\UE4Editor-ThirdPersonShooter.lib and object C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\UE4Editor-ThirdPersonShooter.exp
+    [4/5] UE4Editor-ThirdPersonShooter.dll
+       Creating library C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\UE4Editor-ThirdPersonShooter.suppressed.lib and object C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\UE4Editor-ThirdPersonShooter.suppressed.exp
+    [5/5] ThirdPersonShooterEditor.target
+  Total time in Parallel executor: 1.70 seconds
+  Total execution time: 7.33 seconds

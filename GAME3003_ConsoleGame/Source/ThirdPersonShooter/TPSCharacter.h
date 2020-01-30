@@ -39,10 +39,11 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "PlayerProperties")
 	bool bIsAiming;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	TArray<TSubclassOf<ATPSWeapon>> StarterWeaponClasses;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
-	FName WeaponSocketName;
+	FName HandSocketName;
 	ATPSWeapon* CurrentWeapon;
 	TArray<ATPSWeapon*> Weapons;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
@@ -59,7 +60,14 @@ protected:
 	void FinishSwitching();
 	
 	UPROPERTY(BlueprintReadOnly, Category = "WeaponProperties")
-	WeaponState currentWeaponState = WeaponState::Idle;
+	TEnumAsByte<WeaponState> currentWeaponState = WeaponState::Idle;
+public:
+	inline WeaponState GetCurrentWeaponState() { return currentWeaponState; }
+protected:
+	UPROPERTY(BlueprintReadWrite, Category = "WeaponProperties")
+	bool bPlaySwitchAnim;
+	void NextWeapon();
+	void PreviousWeapon();
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "CoverProperties")
 	UBoxComponent* overlappingCoverVolume;
