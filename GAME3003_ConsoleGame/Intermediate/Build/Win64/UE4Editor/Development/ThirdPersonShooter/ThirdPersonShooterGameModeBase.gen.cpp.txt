@@ -1,9 +1,0 @@
-C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\Definitions.ThirdPersonShooter.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Source\ThirdPersonShooter/ThirdPersonShooterGameModeBase.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-D:\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\UE4Editor\Inc\ThirdPersonShooter\ThirdPersonShooterGameModeBase.generated.h
