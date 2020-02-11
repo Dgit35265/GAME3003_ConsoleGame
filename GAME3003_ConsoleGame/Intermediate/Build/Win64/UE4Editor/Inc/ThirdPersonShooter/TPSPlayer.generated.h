@@ -13,10 +13,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define THIRDPERSONSHOOTER_TPSPlayer_generated_h
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_SPARSE_DATA
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS_NO_PURE_DECLS
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS_NO_PURE_DECLS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_SPARSE_DATA
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATPSPlayer(); \
 	friend struct Z_Construct_UClass_ATPSPlayer_Statics; \
@@ -25,7 +25,7 @@ public: \
 	DECLARE_SERIALIZER(ATPSPlayer)
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS \
 private: \
 	static void StaticRegisterNativesATPSPlayer(); \
 	friend struct Z_Construct_UClass_ATPSPlayer_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(ATPSPlayer)
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_STANDARD_CONSTRUCTORS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ATPSPlayer(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATPSPlayer) \
@@ -47,7 +47,7 @@ private: \
 public:
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_ENHANCED_CONSTRUCTORS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ATPSPlayer(ATPSPlayer&&); \
@@ -58,34 +58,34 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATPSPlayer); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATPSPlayer)
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_PRIVATE_PROPERTY_OFFSET \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__CameraComp() { return STRUCT_OFFSET(ATPSPlayer, CameraComp); } \
 	FORCEINLINE static uint32 __PPO__SpringArmComp() { return STRUCT_OFFSET(ATPSPlayer, SpringArmComp); } \
 	FORCEINLINE static uint32 __PPO__defaultFOV() { return STRUCT_OFFSET(ATPSPlayer, defaultFOV); } \
 	FORCEINLINE static uint32 __PPO__zoomedFOV() { return STRUCT_OFFSET(ATPSPlayer, zoomedFOV); }
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_14_PROLOG
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_GENERATED_BODY_LEGACY \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_14_PROLOG
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_SPARSE_DATA \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_STANDARD_CONSTRUCTORS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_PRIVATE_PROPERTY_OFFSET \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_SPARSE_DATA \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_GENERATED_BODY \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_SPARSE_DATA \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS_NO_PURE_DECLS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h_17_ENHANCED_CONSTRUCTORS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_PRIVATE_PROPERTY_OFFSET \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_SPARSE_DATA \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_INCLASS_NO_PURE_DECLS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -93,7 +93,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> THIRDPERSONSHOOTER_API UClass* StaticClass<class ATPSPlayer>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSPlayer_h
+#define CURRENT_FILE_ID ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSPlayer_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

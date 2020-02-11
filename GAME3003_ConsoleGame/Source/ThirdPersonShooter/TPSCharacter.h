@@ -6,11 +6,11 @@
 #include "GameFramework/Character.h"
 #include "TPSCharacter.generated.h"
 
-UENUM()
+UENUM()		
 enum class WeaponState : uint8
 {
-	Idle			UMETA(DisplayName = "Idle"),
-	Shooting		UMETA(DisplayName = "Shooting"),
+	Idle 			UMETA(DisplayName = "Idle"),
+	Shooting 		UMETA(DisplayName = "Shooting"),
 	Reloading		UMETA(DisplayName = "Reloading"),
 	Switching		UMETA(DisplayName = "Switching")
 };
@@ -42,18 +42,20 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	TArray<TSubclassOf<ATPSWeapon>> StarterWeaponClasses;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	FName HandSocketName;
 	ATPSWeapon* CurrentWeapon;
+	
 	TArray<ATPSWeapon*> Weapons;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	TArray<FName> WeaponSlotSocketNames;
 
 	int currentWeaponSlot;
-
+	
 	UFUNCTION(BlueprintCallable)
 	void EquipWeaponAtCurrentSlot();
-
+	
 	void EquipWeaponAtSlot(int slot);
 	
 	UFUNCTION(BlueprintCallable)
@@ -68,7 +70,7 @@ protected:
 	bool bPlaySwitchAnim;
 	void NextWeapon();
 	void PreviousWeapon();
-	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "CoverProperties")
 	UBoxComponent* overlappingCoverVolume;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "CoverProperties")
@@ -103,6 +105,22 @@ protected:
 	UMaterialInterface* deathMaterial;
 	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperties")
 	bool bPlayReloadAnimFlag;
+
+	// IK
+	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
+	FVector LeftHandIKLocation;
+	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
+	FRotator LeftHandIKRotation;
+
+	// Pickup
+	ATPSWeapon* pickableWeapon;
+	TArray<AActor*> actorsToIgnoreForPickup;
+	void RefreshPickupIgnores();
+	void PickUpWeapon();
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Pickup Properties")
+	FVector pickupBoxHalfSize = FVector(100, 100, 200);
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Pickup Properties")
+	float pickupDistance = 100;
 public:	
 	UFUNCTION(BlueprintCallable)
 	void PlayReloadAnim();

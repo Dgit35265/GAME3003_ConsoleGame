@@ -60,8 +60,7 @@ protected:
 	float accuracy;
 	FTimerHandle BulletTimer;
 public:
-	inline FTimerHandle const& GetBulletTimer() { return BulletTimer; };
-	
+	inline FTimerHandle const & GetBulletTimer() { return BulletTimer; }
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	float BaseDamage = 20;

@@ -8,6 +8,8 @@
 #define Concrete SurfaceType3
 #define WeaponTraceChannel ECC_GameTraceChannel1
 #define CoverTraceChannel ECC_GameTraceChannel2
+#define PickupTraceQueryChannel ETraceTypeQuery::TraceTypeQuery6
+
 
 
 

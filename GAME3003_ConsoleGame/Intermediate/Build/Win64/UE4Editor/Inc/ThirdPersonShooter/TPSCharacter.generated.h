@@ -18,7 +18,7 @@ class AActor;
 #endif
 #define THIRDPERSONSHOOTER_TPSCharacter_generated_h
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_18_DELEGATE \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_18_DELEGATE \
 struct _Script_ThirdPersonShooter_eventOnDeathSignature_Parms \
 { \
 	ATPSCharacter* actor; \
@@ -31,8 +31,8 @@ static inline void FOnDeathSignature_DelegateWrapper(const FMulticastScriptDeleg
 }
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_SPARSE_DATA
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_SPARSE_DATA
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execFinishReload) \
 	{ \
@@ -129,7 +129,7 @@ static inline void FOnDeathSignature_DelegateWrapper(const FMulticastScriptDeleg
 	}
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execFinishReload) \
 	{ \
@@ -226,7 +226,7 @@ static inline void FOnDeathSignature_DelegateWrapper(const FMulticastScriptDeleg
 	}
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS_NO_PURE_DECLS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesATPSCharacter(); \
 	friend struct Z_Construct_UClass_ATPSCharacter_Statics; \
@@ -235,7 +235,7 @@ public: \
 	DECLARE_SERIALIZER(ATPSCharacter)
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS \
 private: \
 	static void StaticRegisterNativesATPSCharacter(); \
 	friend struct Z_Construct_UClass_ATPSCharacter_Statics; \
@@ -244,7 +244,7 @@ public: \
 	DECLARE_SERIALIZER(ATPSCharacter)
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_STANDARD_CONSTRUCTORS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API ATPSCharacter(const FObjectInitializer& ObjectInitializer); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ATPSCharacter) \
@@ -257,7 +257,7 @@ private: \
 public:
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_ENHANCED_CONSTRUCTORS \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ATPSCharacter(ATPSCharacter&&); \
@@ -268,7 +268,7 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATPSCharacter); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ATPSCharacter)
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_PRIVATE_PROPERTY_OFFSET \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__bIsAiming() { return STRUCT_OFFSET(ATPSCharacter, bIsAiming); } \
 	FORCEINLINE static uint32 __PPO__StarterWeaponClasses() { return STRUCT_OFFSET(ATPSCharacter, StarterWeaponClasses); } \
 	FORCEINLINE static uint32 __PPO__HandSocketName() { return STRUCT_OFFSET(ATPSCharacter, HandSocketName); } \
@@ -281,30 +281,34 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ATPSCharacter); \
 	FORCEINLINE static uint32 __PPO__bDead() { return STRUCT_OFFSET(ATPSCharacter, bDead); } \
 	FORCEINLINE static uint32 __PPO__destroyOnDeath() { return STRUCT_OFFSET(ATPSCharacter, destroyOnDeath); } \
 	FORCEINLINE static uint32 __PPO__deathMaterial() { return STRUCT_OFFSET(ATPSCharacter, deathMaterial); } \
-	FORCEINLINE static uint32 __PPO__bPlayReloadAnimFlag() { return STRUCT_OFFSET(ATPSCharacter, bPlayReloadAnimFlag); }
+	FORCEINLINE static uint32 __PPO__bPlayReloadAnimFlag() { return STRUCT_OFFSET(ATPSCharacter, bPlayReloadAnimFlag); } \
+	FORCEINLINE static uint32 __PPO__LeftHandIKLocation() { return STRUCT_OFFSET(ATPSCharacter, LeftHandIKLocation); } \
+	FORCEINLINE static uint32 __PPO__LeftHandIKRotation() { return STRUCT_OFFSET(ATPSCharacter, LeftHandIKRotation); } \
+	FORCEINLINE static uint32 __PPO__pickupBoxHalfSize() { return STRUCT_OFFSET(ATPSCharacter, pickupBoxHalfSize); } \
+	FORCEINLINE static uint32 __PPO__pickupDistance() { return STRUCT_OFFSET(ATPSCharacter, pickupDistance); }
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_23_PROLOG
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_GENERATED_BODY_LEGACY \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_23_PROLOG
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_SPARSE_DATA \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_STANDARD_CONSTRUCTORS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_PRIVATE_PROPERTY_OFFSET \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_SPARSE_DATA \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_GENERATED_BODY \
+#define ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_PRIVATE_PROPERTY_OFFSET \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_SPARSE_DATA \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS_NO_PURE_DECLS \
-	GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h_26_ENHANCED_CONSTRUCTORS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_PRIVATE_PROPERTY_OFFSET \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_SPARSE_DATA \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_INCLASS_NO_PURE_DECLS \
+	ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h_26_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -312,7 +316,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> THIRDPERSONSHOOTER_API UClass* StaticClass<class ATPSCharacter>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID GAME3003_ConsoleGame_Source_ThirdPersonShooter_TPSCharacter_h
+#define CURRENT_FILE_ID ThirdPersonShooter_Week_6_Starter_Project_Source_ThirdPersonShooter_TPSCharacter_h
 
 
 #define FOREACH_ENUM_WEAPONSTATE(op) \

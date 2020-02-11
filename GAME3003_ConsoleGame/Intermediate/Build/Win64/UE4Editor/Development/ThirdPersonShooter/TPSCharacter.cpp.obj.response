@@ -524,9 +524,9 @@
 /I Runtime\ClothingSystemRuntimeInterface
 /I Runtime\AudioMixerCore\Public
 /I Runtime\AudioMixerCore
-/I C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Inc\ThirdPersonShooter
-/I C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source
-/I C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter
+/I "C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\UE4Editor\Inc\ThirdPersonShooter"
+/I "C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Source"
+/I "C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Source\ThirdPersonShooter"
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf
@@ -552,16 +552,16 @@
 /I ThirdParty\PhysX3\APEX_1.4\shared\internal\include
 /I "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\INCLUDE"
 /I "C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\include\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\shared"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\um"
-/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\winrt"
-/FI"C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\Engine\SharedPCH.Engine.h"
-/Yu"C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\Engine\SharedPCH.Engine.h"
-/Fp"C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter\TPSCharacter.cpp"
-/FI"C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\Definitions.ThirdPersonShooter.h"
-/Fo"C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\TPSCharacter.cpp.obj"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um"
+/I "C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt"
+/FI"C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\Engine\SharedPCH.Engine.h"
+/Yu"C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\Engine\SharedPCH.Engine.h"
+/Fp"C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\ThirdPersonShooterEditor\Development\Engine\SharedPCH.Engine.h.pch"
+"C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Source\ThirdPersonShooter\TPSCharacter.cpp"
+/FI"C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\Definitions.ThirdPersonShooter.h"
+/Fo"C:\Users\Ding\Desktop\ThirdPersonShooter-Week 6 Starter Project\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\TPSCharacter.cpp.obj"
 /TP
 /GR-
 /W4

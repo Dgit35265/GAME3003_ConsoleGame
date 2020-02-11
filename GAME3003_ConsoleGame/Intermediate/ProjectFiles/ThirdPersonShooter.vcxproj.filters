@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\ThirdPersonShooter.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{29353155-777A-44E2-8441-C3D96F52CDC3}</UniqueIdentifier>
+      <UniqueIdentifier>{CBF19CB4-8AD4-4B89-A2AF-99B738B81516}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\ThirdPersonShooter.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{F8063B8F-3C5B-45EE-ACBE-0F3FA1C84FCA}</UniqueIdentifier>
+      <UniqueIdentifier>{C85AD5DC-6B98-461F-8104-8F6E49F60E6D}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -27,7 +27,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\ThirdPersonShooter">
-      <UniqueIdentifier>{9B661FDE-7552-4A38-8057-C5584F49ECC6}</UniqueIdentifier>
+      <UniqueIdentifier>{87BB6AE9-6213-4299-9E41-BBF2804D4058}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\ThirdPersonShooter\HealthComponent.cpp">
       <Filter>Source\ThirdPersonShooter</Filter>

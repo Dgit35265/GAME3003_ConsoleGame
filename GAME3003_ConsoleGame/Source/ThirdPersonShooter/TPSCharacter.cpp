@@ -13,6 +13,8 @@
 #include "TimerManager.h"
 #include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "ThirdPersonShooter.h"
 
 
 // Sets default values
@@ -37,12 +39,13 @@ void ATPSCharacter::BeginPlay()
 	for (auto weaponClass : StarterWeaponClasses)
 	{
 		auto weapon = GetWorld()->SpawnActor<ATPSWeapon>(weaponClass, spawnParams);
-		weapon->SetOwner(this);
 		Weapons.Add(weapon);
+		weapon->SetOwner(this);
 	}
 
 	currentWeaponSlot = 0;
 	EquipWeaponAtSlot(currentWeaponSlot);
+	RefreshPickupIgnores();
 }
 
 // Called every frame
@@ -55,7 +58,7 @@ void ATPSCharacter::Tick(float DeltaTime)
 	{
 		if (bIsAiming)
 		{
-			GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
+			GetMesh()->SetRelativeRotation(FRotator(0, -75, 0));
 		}
 		else
 		{
@@ -67,8 +70,48 @@ void ATPSCharacter::Tick(float DeltaTime)
 	}
 	else
 	{
-		GetMesh()->SetRelativeRotation(FRotator(0, -90, 0));
+		GetMesh()->SetRelativeRotation(FRotator(0, -75, 0));
 	}
+
+	// IK
+	if (CurrentWeapon)
+	{
+		auto socketTransform = CurrentWeapon->MeshComp->GetSocketTransform("LeftHandSocket",
+			ERelativeTransformSpace::RTS_World);
+		GetMesh()->TransformToBoneSpace("hand_r",
+			socketTransform.GetLocation(),
+			socketTransform.GetRotation().Rotator(),
+			LeftHandIKLocation,
+			LeftHandIKRotation
+		);
+	}
+
+	// Pickup
+	FHitResult hit;
+	FVector EyeLoc;
+	FRotator EyeRot;
+	GetActorEyesViewPoint(EyeLoc, EyeRot);
+
+	if (UKismetSystemLibrary::BoxTraceSingle(this, EyeLoc + pickupBoxHalfSize.X * EyeRot.Vector(),
+		EyeLoc + pickupDistance * EyeRot.Vector(), pickupBoxHalfSize, EyeRot,
+		PickupTraceQueryChannel, false, actorsToIgnoreForPickup, EDrawDebugTrace::ForOneFrame,
+		hit, true))
+	{
+		if (Cast<ATPSWeapon>(hit.Actor) && hit.Actor->GetOwner() == nullptr)
+		{
+			auto weapon = Cast<ATPSWeapon>(hit.Actor);
+			pickableWeapon = weapon;
+		}
+		else
+		{
+			pickableWeapon = nullptr;
+		}
+	}
+	else
+	{
+		pickableWeapon = nullptr;
+	}
+
 }
 
 void ATPSCharacter::MoveForward(float val)
@@ -141,6 +184,7 @@ void ATPSCharacter::EquipWeaponAtSlot(int slot)
 				WeaponSlotSocketNames[i]);
 		}
 	}
+
 	CurrentWeapon = Weapons[slot];
 	CurrentWeapon->AttachToComponent(Cast<USceneComponent>(GetMesh()),
 		FAttachmentTransformRules::SnapToTargetNotIncludingScale,
@@ -149,15 +193,19 @@ void ATPSCharacter::EquipWeaponAtSlot(int slot)
 
 void ATPSCharacter::FinishSwitching()
 {
-	if (currentWeaponState == WeaponState::Switching)
+	/*if (currentWeaponState == WeaponState::Switching)
 	{
-		currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid() ? WeaponState::Shooting : WeaponState::Idle;
-	}
+		currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid()
+			? WeaponState::Shooting : WeaponState::Idle;
+	}*/
+	currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid()
+		? WeaponState::Shooting : WeaponState::Idle;
 }
 
 void ATPSCharacter::NextWeapon()
 {
-	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
+	if (currentWeaponState == WeaponState::Idle || 
+		currentWeaponState == WeaponState::Shooting)
 	{
 		currentWeaponSlot++;
 		currentWeaponSlot = currentWeaponSlot % Weapons.Num();
@@ -168,7 +216,8 @@ void ATPSCharacter::NextWeapon()
 
 void ATPSCharacter::PreviousWeapon()
 {
-	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
+	if (currentWeaponState == WeaponState::Idle ||
+		currentWeaponState == WeaponState::Shooting)
 	{
 		currentWeaponSlot--;
 		if (currentWeaponSlot < 0)
@@ -248,9 +297,32 @@ void ATPSCharacter::DetatchWeapon()
 	CurrentWeapon->MeshComp->SetSimulatePhysics(true);
 	CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
 }
+void ATPSCharacter::RefreshPickupIgnores()
+{
+	actorsToIgnoreForPickup.Empty();
+	for (auto weapon : Weapons)
+	{
+		actorsToIgnoreForPickup.Add(weapon);
+	}
+}
+void ATPSCharacter::PickUpWeapon()
+{
+	if (currentWeaponState == WeaponState::Idle && pickableWeapon)
+	{
+		CurrentWeapon->SetOwner(nullptr);
+		CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		CurrentWeapon->SetActorLocation(pickableWeapon->GetActorLocation());
+		CurrentWeapon->SetActorRotation(pickableWeapon->GetActorRotation());
+		Weapons[currentWeaponSlot] = pickableWeapon;
+		pickableWeapon->SetOwner(this);
+		EquipWeaponAtSlot(currentWeaponSlot);
+		RefreshPickupIgnores();
+	}
+}
 void ATPSCharacter::PlayReloadAnim()
 {
-	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
+	if (currentWeaponState == WeaponState::Idle ||
+		currentWeaponState == WeaponState::Shooting)
 	{
 		bPlayReloadAnimFlag = true;
 		currentWeaponState = WeaponState::Reloading;
@@ -263,10 +335,11 @@ void ATPSCharacter::ReloadAnimStarted()
 
 void ATPSCharacter::FinishReload()
 {
-	if (currentWeaponState == WeaponState::Reloading && CurrentWeapon)
+	if (CurrentWeapon && currentWeaponState == WeaponState::Reloading)
 	{
 		CurrentWeapon->Reload();
-		currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid() ? WeaponState::Shooting : WeaponState::Idle;
+		currentWeaponState = CurrentWeapon->GetBulletTimer().IsValid()
+			? WeaponState::Shooting : WeaponState::Idle;
 	}
 }
 
