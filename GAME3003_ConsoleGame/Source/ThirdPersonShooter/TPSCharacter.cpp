@@ -261,6 +261,8 @@ void ATPSCharacter::EquipWeaponAtSlot(int slot)
 	CurrentWeapon->AttachToComponent(Cast<USceneComponent>(GetMesh()),
 		FAttachmentTransformRules::SnapToTargetNotIncludingScale,
 		HandSocketName);
+
+	OnWeaponSwitch.Broadcast(CurrentWeapon, PrevWeapon);
 }
 
 void ATPSCharacter::FinishSwitching()

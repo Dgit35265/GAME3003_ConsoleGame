@@ -18,6 +18,8 @@ enum class WeaponState : uint8
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeathSignature, ATPSCharacter*, actor);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWeaponSwitchSignature, ATPSWeapon*, currentWeapon, ATPSWeapon*, previousWeapon);
+
 class ATPSWeapon;
 class ATPSPickups;
 class UBoxComponent;
@@ -48,6 +50,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	FName HandSocketName;
 	ATPSWeapon* CurrentWeapon;
+	ATPSWeapon* PrevWeapon;
 	
 	TArray<ATPSWeapon*> Weapons;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
@@ -160,6 +163,7 @@ public:
 	void FinishReload();
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnDeathSignature OnDeath;
+	FOnWeaponSwitchSignature OnWeaponSwitch;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

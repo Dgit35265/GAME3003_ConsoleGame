@@ -1,0 +1,11 @@
+C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\Definitions.ThirdPersonShooter.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
+C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter/TPSAI.h
+C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter\TPSCharacter.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
+C:\Program Files\Epic Games\UE_4.24\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Inc\ThirdPersonShooter\TPSCharacter.generated.h
+C:\Users\gavin\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Inc\ThirdPersonShooter\TPSAI.generated.h

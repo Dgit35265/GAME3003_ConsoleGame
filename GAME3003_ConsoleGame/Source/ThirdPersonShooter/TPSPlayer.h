@@ -30,17 +30,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "PlayerProperties", meta = (ClampMin = 30, ClampMax = 120))
 	float zoomedFOV;
 
-	// UI
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI Properties")
-	TSubclassOf<UUserWidget> DamageUISubclass;
-	UUserWidget* DamageUI;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI Properties")
-	TSubclassOf<UUserWidget> PlayerUISubclass;
-	UUserWidget* PlayerUI;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "UI Properties")
-	TSubclassOf<UUserWidget> PickupUISubclass;
-	UUserWidget* PickupUI;
-
 	virtual void StartZoom() override;
 	virtual void EndZoom() override;
 public:

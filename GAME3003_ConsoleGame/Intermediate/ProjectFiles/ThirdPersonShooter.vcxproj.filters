@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\ThirdPersonShooter.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{FD3EF933-1D0E-4227-B458-5630A72378FD}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\ThirdPersonShooter.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\ThirdPersonShooterEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{43998A7F-5A22-423D-993C-933CB443E8D4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\ThirdPersonShooter">
+      <UniqueIdentifier>{4B429828-487D-41FE-8F28-DA964B6DB355}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\HealthComponent.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\HealthComponent.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\ThirdPersonShooter\ThirdPersonShooter.Build.cs">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\ThirdPersonShooter.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\ThirdPersonShooter.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\ThirdPersonShooterGameModeBase.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\ThirdPersonShooterGameModeBase.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\TPSAI.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\TPSAI.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\TPSCharacter.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\TPSCharacter.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\TPSGameMode.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\TPSGameMode.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\TPSPickups.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\TPSPickups.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\TPSPlayer.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\TPSPlayer.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\TPSWeapon.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\TPSWeapon.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\ThirdPersonShooter\Tracker.cpp">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\ThirdPersonShooter\Tracker.h">
+      <Filter>Source\ThirdPersonShooter</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

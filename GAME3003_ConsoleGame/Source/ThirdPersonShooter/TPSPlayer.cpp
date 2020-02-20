@@ -20,40 +20,6 @@ ATPSPlayer::ATPSPlayer()
 void ATPSPlayer::BeginPlay()
 {
 	ATPSCharacter::BeginPlay();
-	auto playerController = Cast<APlayerController>(this->GetController());
-	if (playerController)
-	{
-		playerController->SetOwner(this);
-	}
-	DamageUI = CreateWidget<UUserWidget>(GetWorld(), DamageUISubclass);
-	if (DamageUI)
-	{
-		if (playerController)
-		{
-			DamageUI->SetOwningPlayer(playerController);
-		}
-		DamageUI->AddToViewport();
-	}
-
-	PlayerUI = CreateWidget<UUserWidget>(GetWorld(), PlayerUISubclass);
-	if (PlayerUI)
-	{
-		if (playerController)
-		{
-			PlayerUI->SetOwningPlayer(playerController);
-		}
-		PlayerUI->AddToViewport();
-	}
-	
-	PickupUI = CreateWidget<UUserWidget>(GetWorld(), PickupUISubclass);
-	if (PickupUI)
-	{
-		if (playerController)
-		{
-			PickupUI->SetOwningPlayer(playerController);
-		}
-		PickupUI->AddToViewport();
-	}
 }
 
 void ATPSPlayer::StartZoom()
@@ -71,22 +37,6 @@ void ATPSPlayer::EndZoom()
 void ATPSPlayer::Tick(float DeltaTime)
 {
 	ATPSCharacter::Tick(DeltaTime);
-	if (pickableWeapon)
-	{
-		PickupUI->AddToViewport();
-	}
-	else
-	{
-		PickupUI->RemoveFromViewport();
-	}
-	if (currentWeaponState == WeaponState::Idle || currentWeaponState == WeaponState::Shooting)
-	{
-		PlayerUI->AddToViewport();
-	}
-	else
-	{
-		PlayerUI->RemoveFromViewport();
-	}
 }
 
 // Called to bind functionality to input

@@ -7,6 +7,7 @@
 #include "TPSWeapon.generated.h"
 
 class UCameraShake;
+class UTexture2D;
 
 UCLASS()
 class THIRDPERSONSHOOTER_API ATPSWeapon : public AActor
@@ -84,4 +85,8 @@ public:
 
 	void DamageBoost();
 	void DamageBoostReset();
+
+protected:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "WeaponUI")
+	UTexture2D* weaponIcon;
 };
