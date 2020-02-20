@@ -2,6 +2,7 @@
 
 
 #include "HealthComponent.h"
+#include "TPSCharacter.h"
 #include "GameFramework/Actor.h"
 #include "Engine/Engine.h"
 
@@ -29,13 +30,13 @@ void UHealthComponent::BeginPlay()
 	// ...
 	Health = MaxHealth;
 
-	AActor* myOwner = GetOwner();
+	myOwner = GetOwner();
 
 	if (myOwner)
 	{
 		myOwner->OnTakeAnyDamage.AddDynamic(this, &UHealthComponent::HandleTakeAnyDamage);
 	}
-	
+	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health: " + FString::SanitizeFloat(MaxHealth));
 }
 
 
@@ -49,14 +50,15 @@ void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 void UHealthComponent::HandleTakeAnyDamage(AActor * DamagedActor, float Damage, const UDamageType * DamageType, AController * InstigatedBy, AActor * DamageCauser)
 {
-	if (Damage <= 0.0f)
+	if (Damage <= 0.0f || Cast<ATPSCharacter>(myOwner)->GetInvincible())//
 	{
 		return;
 	}
 
+	UE_LOG(LogTemp, Warning, TEXT("Get Damaged"));
 	Health = FMath::Clamp(Health - Damage, 0.0f, MaxHealth);
 	OnHealthChanged.Broadcast(this, Health, Damage, DamageType, InstigatedBy, DamageCauser);
 
-	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health Changed %f" + FString::SanitizeFloat(Health));
+	GEngine->AddOnScreenDebugMessage(-1, 2, FColor::Orange, "Health Changed: " + FString::SanitizeFloat(Health));
 }
 

@@ -59,6 +59,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Weapon", meta = (ClampMin = 0, ClampMax = 1))
 	float accuracy;
 	FTimerHandle BulletTimer;
+	FTimerHandle DamageBoostResetTimer;
 public:
 	inline FTimerHandle const & GetBulletTimer() { return BulletTimer; }
 protected:
@@ -66,6 +67,7 @@ protected:
 	float BaseDamage = 20;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
 	float DamageMultiplier = 4;
+	float DamageBoostMultiplier;
 
 public:	
 	void Reload();
@@ -78,6 +80,8 @@ public:
 	void Fire();
 	bool firing;
 	void StartFire();
-
 	void EndFire();
+
+	void DamageBoost();
+	void DamageBoostReset();
 };

@@ -5,6 +5,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Engine/World.h"
 #include "TPSWeapon.h"
+#include "TPSPickups.h"
 #include "Components/BoxComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -46,6 +47,9 @@ void ATPSCharacter::BeginPlay()
 	currentWeaponSlot = 0;
 	EquipWeaponAtSlot(currentWeaponSlot);
 	RefreshPickupIgnores();
+	OriginalMeshLocation = GetMesh()->RelativeLocation; 
+
+	isInvincible = false;
 }
 
 // Called every frame
@@ -73,7 +77,7 @@ void ATPSCharacter::Tick(float DeltaTime)
 		GetMesh()->SetRelativeRotation(FRotator(0, -75, 0));
 	}
 
-	// IK
+	//Hand IK
 	if (CurrentWeapon)
 	{
 		auto socketTransform = CurrentWeapon->MeshComp->GetSocketTransform("LeftHandSocket",
@@ -86,32 +90,99 @@ void ATPSCharacter::Tick(float DeltaTime)
 		);
 	}
 
+	//Foot IK --- Assignment2
+	FVector LeftFootLTraceStart = GetMesh()->GetSocketLocation("FootLSocket");
+	FVector RightFootLTraceStart = GetMesh()->GetSocketLocation("FootRSocket");
+	LeftFootLTraceStart.Z = GetActorLocation().Z;
+	RightFootLTraceStart.Z = GetActorLocation().Z;
+	FVector LeftFootLTraceEnd = LeftFootLTraceStart + (FVector::DownVector * (GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + IKDistance));
+	FVector RightFootLTraceEnd = RightFootLTraceStart + (FVector::DownVector * (GetCapsuleComponent()->GetScaledCapsuleHalfHeight() + IKDistance));
+
+	FHitResult LeftFootHit;
+	FHitResult RightFootHit;
+
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this);
+	bool FootOnGround = false;
+	//Left Foot Line Trace
+	if (GetWorld()->LineTraceSingleByChannel(LeftFootHit, LeftFootLTraceStart, LeftFootLTraceEnd, ECollisionChannel::ECC_Visibility, QueryParams))
+	{
+		FootOnGround = true;
+		DrawDebugLine(GetWorld(), LeftFootLTraceStart, LeftFootHit.Location, FColor::Green, false, 2 * DeltaTime, 0, 3);
+	}
+	else
+	{
+		DrawDebugLine(GetWorld(), LeftFootLTraceStart, LeftFootLTraceEnd, FColor::Red, false, 2 * DeltaTime, 0, 3);
+	}
+	//Right Foot Line Trace
+	if (GetWorld()->LineTraceSingleByChannel(RightFootHit, RightFootLTraceStart, RightFootLTraceEnd, ECollisionChannel::ECC_Visibility, QueryParams))
+	{
+		FootOnGround = true;
+		DrawDebugLine(GetWorld(), RightFootLTraceStart, RightFootHit.Location, FColor::Green, false, 2 * DeltaTime, 0, 3);
+	}
+	else
+	{
+		DrawDebugLine(GetWorld(), RightFootLTraceStart, RightFootLTraceEnd, FColor::Red, false, 2 * DeltaTime, 0, 3);
+	}
+	// Set Left & Right Foot IK Location
+	if (FootOnGround && GetVelocity().Size() < 10)
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("EnableIK"));
+		EnableIK = true;
+		FVector NewMeshPos = GetMesh()->GetComponentLocation();
+		NewMeshPos.Z = FMath::Min(LeftFootHit.Location.Z, RightFootHit.Location.Z); //Get the Z value for player mesh base on the lowest foot z value
+		GetMesh()->SetWorldLocation(NewMeshPos);
+		LeftFootIK = GetMesh()->GetSocketLocation("FootLSocket");
+		LeftFootIK.Z = LeftFootHit.Location.Z + FootIKOffset;
+		LeftFootIK = GetMesh()->GetComponentTransform().Inverse().TransformPosition(LeftFootIK);
+		RightFootIK = GetMesh()->GetSocketLocation("FootRSocket");
+		RightFootIK.Z = RightFootHit.Location.Z + FootIKOffset;
+		RightFootIK = GetMesh()->GetComponentTransform().Inverse().TransformPosition(RightFootIK);
+	}
+	else
+	{
+		EnableIK = false;
+		GetMesh()->SetWorldLocation(GetTransform().TransformPosition(OriginalMeshLocation));
+	}
+
 	// Pickup
 	FHitResult hit;
 	FVector EyeLoc;
 	FRotator EyeRot;
 	GetActorEyesViewPoint(EyeLoc, EyeRot);
 
+	//Setup if colliding with pickableWeapon
 	if (UKismetSystemLibrary::BoxTraceSingle(this, EyeLoc + pickupBoxHalfSize.X * EyeRot.Vector(),
 		EyeLoc + pickupDistance * EyeRot.Vector(), pickupBoxHalfSize, EyeRot,
 		PickupTraceQueryChannel, false, actorsToIgnoreForPickup, EDrawDebugTrace::ForOneFrame,
 		hit, true))
 	{
+		//PickableWeapon
 		if (Cast<ATPSWeapon>(hit.Actor) && hit.Actor->GetOwner() == nullptr)
 		{
 			auto weapon = Cast<ATPSWeapon>(hit.Actor);
 			pickableWeapon = weapon;
+			//check if there are several weapons?
 		}
 		else
 		{
 			pickableWeapon = nullptr;
 		}
+		//Pickups
+		if (Cast<ATPSPickups>(hit.Actor))
+		{
+			pickups = Cast<ATPSPickups>(hit.Actor);
+		}
+		else
+		{
+			pickups = nullptr;
+		}
 	}
 	else
 	{
 		pickableWeapon = nullptr;
+		pickups = nullptr;
 	}
-
 }
 
 void ATPSCharacter::MoveForward(float val)
@@ -155,7 +226,7 @@ void ATPSCharacter::EndCrouch()
 void ATPSCharacter::EquipWeaponAtCurrentSlot()
 {
 	bool weaponWasFiring = false;
-	if (CurrentWeapon->GetBulletTimer().IsValid())
+	if (CurrentWeapon->GetBulletTimer().IsValid()) //check if currentweapon is firing
 	{
 		EndFire();
 		weaponWasFiring = true;
@@ -177,14 +248,15 @@ void ATPSCharacter::EquipWeaponAtSlot(int slot)
 
 	for (int i = 0; i < Weapons.Num(); i++)
 	{
-		if (i != slot)
+		if (i != slot) //??Refresh other weapons back to their slots
 		{
 			Weapons[i]->AttachToComponent(Cast<USceneComponent>(GetMesh()),
 				FAttachmentTransformRules::SnapToTargetNotIncludingScale,
 				WeaponSlotSocketNames[i]);
 		}
 	}
-
+	
+	//Set selected weapon as current weapon
 	CurrentWeapon = Weapons[slot];
 	CurrentWeapon->AttachToComponent(Cast<USceneComponent>(GetMesh()),
 		FAttachmentTransformRules::SnapToTargetNotIncludingScale,
@@ -297,17 +369,19 @@ void ATPSCharacter::DetatchWeapon()
 	CurrentWeapon->MeshComp->SetSimulatePhysics(true);
 	CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepRelativeTransform);
 }
+
+#pragma region Pickup
 void ATPSCharacter::RefreshPickupIgnores()
 {
 	actorsToIgnoreForPickup.Empty();
 	for (auto weapon : Weapons)
 	{
-		actorsToIgnoreForPickup.Add(weapon);
+		actorsToIgnoreForPickup.Add(weapon);//Ignore weapon player owned
 	}
 }
 void ATPSCharacter::PickUpWeapon()
 {
-	if (currentWeaponState == WeaponState::Idle && pickableWeapon)
+	if (currentWeaponState == WeaponState::PickingUp && pickableWeapon)
 	{
 		CurrentWeapon->SetOwner(nullptr);
 		CurrentWeapon->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
@@ -317,8 +391,65 @@ void ATPSCharacter::PickUpWeapon()
 		pickableWeapon->SetOwner(this);
 		EquipWeaponAtSlot(currentWeaponSlot);
 		RefreshPickupIgnores();
+		currentWeaponState = WeaponState::Idle;
 	}
 }
+void ATPSCharacter::Pickups()
+{
+	if (pickups)
+	{
+		pickups->PickupEffect();
+	}
+}
+void ATPSCharacter::StartPickup()
+{
+	if (currentWeaponState == WeaponState::Idle && pickableWeapon)
+	{
+		GetWorldTimerManager().SetTimer(weaponPickupTimer, this, &ATPSCharacter::PickUpWeapon, pickupTime, false);
+		currentWeaponState = WeaponState::PickingUp;
+	}
+
+	if (pickups)
+	{
+		DrawDebugLine(GetWorld(), pickups->GetActorLocation(), GetActorLocation(), FColor::Blue, false, 2.0f, 0, 10);
+		pickups->SetOwner(this);
+		GetWorldTimerManager().SetTimer(pickupTimer, this, &ATPSCharacter::Pickups, pickupTime, false);
+	}
+}
+void ATPSCharacter::CancelPickup()
+{
+	if (currentWeaponState == WeaponState::PickingUp)
+	{
+		currentWeaponState = WeaponState::Idle;
+	}
+
+	GetWorldTimerManager().ClearTimer(weaponPickupTimer);
+	GetWorldTimerManager().ClearTimer(pickupTimer);
+}
+float ATPSCharacter::GetPickupAlpha()
+{
+	return GetWorldTimerManager().GetTimerElapsed(weaponPickupTimer) / pickupTime;
+}
+AActor* ATPSCharacter::GetCurrentWeapon()
+{
+	return CurrentWeapon;
+}
+//Invinciblility
+void ATPSCharacter::SetInvincible()
+{
+	isInvincible = true;
+	GetWorldTimerManager().SetTimer(invincibleTimer, this, &ATPSCharacter::ResetInvincible, invincibleTime, false);
+}
+void ATPSCharacter::ResetInvincible()
+{
+	isInvincible = false;
+}
+bool ATPSCharacter::GetInvincible()
+{
+	return isInvincible;
+}
+#pragma endregion
+
 void ATPSCharacter::PlayReloadAnim()
 {
 	if (currentWeaponState == WeaponState::Idle ||

@@ -12,12 +12,14 @@ enum class WeaponState : uint8
 	Idle 			UMETA(DisplayName = "Idle"),
 	Shooting 		UMETA(DisplayName = "Shooting"),
 	Reloading		UMETA(DisplayName = "Reloading"),
-	Switching		UMETA(DisplayName = "Switching")
+	Switching		UMETA(DisplayName = "Switching"),
+	PickingUp       UMETA(DisplayName = "PickingUp")
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeathSignature, ATPSCharacter*, actor);
 
 class ATPSWeapon;
+class ATPSPickups;
 class UBoxComponent;
 class UHealthComponent;
 UCLASS()
@@ -106,21 +108,49 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "PlayerProperties")
 	bool bPlayReloadAnimFlag;
 
-	// IK
+	//Hand IK
 	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
 	FVector LeftHandIKLocation;
 	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
 	FRotator LeftHandIKRotation;
 
+	//Foot IK
+	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
+	FVector LeftFootIK;
+	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
+	FVector RightFootIK;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "IK Properties")
+	float IKDistance = 50;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "IK Properties")
+	float FootIKOffset = 13;
+	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
+	bool EnableIK;
+	FVector OriginalMeshLocation;
+
 	// Pickup
 	ATPSWeapon* pickableWeapon;
+	ATPSPickups* pickups;
 	TArray<AActor*> actorsToIgnoreForPickup;
 	void RefreshPickupIgnores();
 	void PickUpWeapon();
+	void Pickups();
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Pickup Properties")
 	FVector pickupBoxHalfSize = FVector(100, 100, 200);
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Pickup Properties")
 	float pickupDistance = 100;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Pickup Properties")
+	float pickupTime = 1.0f;
+	float invincibleTime = 10.f;
+	FTimerHandle pickupTimer;
+	FTimerHandle weaponPickupTimer;
+	FTimerHandle invincibleTimer;
+	virtual void StartPickup();
+	virtual void CancelPickup();
+	UFUNCTION(BlueprintCallable)
+	float GetPickupAlpha();
+	bool isInvincible;
+
+
 public:	
 	UFUNCTION(BlueprintCallable)
 	void PlayReloadAnim();
@@ -136,4 +166,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual FVector GetPawnViewLocation() const override;
+
+	AActor* GetCurrentWeapon();
+
+	void SetInvincible();
+	void ResetInvincible();
+	bool GetInvincible();
 };

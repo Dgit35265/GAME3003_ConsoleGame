@@ -37,6 +37,7 @@ void ATPSWeapon::BeginPlay()
 {
 	Super::BeginPlay();
 	ammoCount = magazineSize;
+	DamageBoostMultiplier = 1;
 	//MuzzleSocketName = "Muzzle";
 }
 
@@ -76,6 +77,18 @@ void ATPSWeapon::EndFire()
 	firing = false;
 }
 
+//Damage Boost
+void ATPSWeapon::DamageBoost()
+{
+	DamageBoostMultiplier = 10;
+	GetWorldTimerManager().SetTimer(DamageBoostResetTimer, this, &ATPSWeapon::DamageBoostReset, 10.0f, false); //Reset DamageMultiplier after 10s
+}
+
+void ATPSWeapon::DamageBoostReset()
+{
+	DamageBoostMultiplier = 1;
+}
+
 void ATPSWeapon::Fire()
 {
 	ATPSCharacter* MyOwner = Cast<ATPSCharacter>(GetOwner());
@@ -104,7 +117,7 @@ void ATPSWeapon::Fire()
 			EPhysicalSurface SurfaceType = UPhysicalMaterial::DetermineSurfaceType(Cast <UPhysicalMaterial>(Hit.PhysMaterial));
 
 			UParticleSystem* ImpactEffectToPlay = NULL;
-			float DamageToApply = BaseDamage;
+			float DamageToApply = BaseDamage * DamageBoostMultiplier;
 
 			switch (SurfaceType)
 			{
@@ -167,7 +180,5 @@ void ATPSWeapon::Fire()
 			MyOwner->PlayReloadAnim();
 		}
 	}
-
-
 }
 
