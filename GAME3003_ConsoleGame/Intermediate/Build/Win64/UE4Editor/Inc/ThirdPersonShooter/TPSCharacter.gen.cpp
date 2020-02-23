@@ -525,6 +525,10 @@ void EmptyLinkFunctionForGeneratedCodeTPSCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OnWeaponSwitch_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnWeaponSwitch;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OnDeath_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnDeath;
@@ -540,6 +544,10 @@ void EmptyLinkFunctionForGeneratedCodeTPSCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_pickupBoxHalfSize_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_pickupBoxHalfSize;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_pickableWeapon_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_pickableWeapon;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_EnableIK_MetaData[];
 #endif
@@ -660,6 +668,13 @@ void EmptyLinkFunctionForGeneratedCodeTPSCharacter() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnWeaponSwitch_MetaData[] = {
+		{ "Category", "Events" },
+		{ "ModuleRelativePath", "TPSCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnWeaponSwitch = { "OnWeaponSwitch", nullptr, (EPropertyFlags)0x0010000010080000, UE4CodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATPSCharacter, OnWeaponSwitch), Z_Construct_UDelegateFunction_ThirdPersonShooter_OnWeaponSwitchSignature__DelegateSignature, METADATA_PARAMS(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnWeaponSwitch_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnWeaponSwitch_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnDeath_MetaData[] = {
 		{ "Category", "Events" },
 		{ "ModuleRelativePath", "TPSCharacter.h" },
@@ -687,6 +702,15 @@ void EmptyLinkFunctionForGeneratedCodeTPSCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickupBoxHalfSize = { "pickupBoxHalfSize", nullptr, (EPropertyFlags)0x0020080000010015, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATPSCharacter, pickupBoxHalfSize), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickupBoxHalfSize_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickupBoxHalfSize_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickableWeapon_MetaData[] = {
+		{ "Category", "Pickup Properties" },
+		{ "Comment", "// Pickup\n" },
+		{ "ModuleRelativePath", "TPSCharacter.h" },
+		{ "ToolTip", "Pickup" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickableWeapon = { "pickableWeapon", nullptr, (EPropertyFlags)0x0020080000000014, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ATPSCharacter, pickableWeapon), Z_Construct_UClass_ATPSWeapon_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickableWeapon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickableWeapon_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ATPSCharacter_Statics::NewProp_EnableIK_MetaData[] = {
 		{ "Category", "IK Properties" },
@@ -867,10 +891,12 @@ void EmptyLinkFunctionForGeneratedCodeTPSCharacter() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ATPSCharacter_Statics::NewProp_bIsAiming = { "bIsAiming", nullptr, (EPropertyFlags)0x0020080000020015, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ATPSCharacter), &Z_Construct_UClass_ATPSCharacter_Statics::NewProp_bIsAiming_SetBit, METADATA_PARAMS(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_bIsAiming_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ATPSCharacter_Statics::NewProp_bIsAiming_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATPSCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnWeaponSwitch,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_OnDeath,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickupTime,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickupDistance,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickupBoxHalfSize,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_pickableWeapon,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_EnableIK,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_FootIKOffset,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATPSCharacter_Statics::NewProp_IKDistance,
@@ -922,7 +948,7 @@ void EmptyLinkFunctionForGeneratedCodeTPSCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATPSCharacter, 803705464);
+	IMPLEMENT_CLASS(ATPSCharacter, 2736363039);
 	template<> THIRDPERSONSHOOTER_API UClass* StaticClass<ATPSCharacter>()
 	{
 		return ATPSCharacter::StaticClass();

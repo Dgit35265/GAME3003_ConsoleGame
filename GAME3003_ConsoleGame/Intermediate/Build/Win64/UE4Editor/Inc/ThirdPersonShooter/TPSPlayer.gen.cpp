@@ -131,7 +131,7 @@ void EmptyLinkFunctionForGeneratedCodeTPSPlayer() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ATPSPlayer, 731034670);
+	IMPLEMENT_CLASS(ATPSPlayer, 2088185404);
 	template<> THIRDPERSONSHOOTER_API UClass* StaticClass<ATPSPlayer>()
 	{
 		return ATPSPlayer::StaticClass();

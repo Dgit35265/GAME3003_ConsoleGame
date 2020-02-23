@@ -29,7 +29,7 @@ void EmptyLinkFunctionForGeneratedCodeThirdPersonShooter_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x6B073175,
+				0x56B91B89,
 				0x847B97B1,
 				METADATA_PARAMS(nullptr, 0)
 			};

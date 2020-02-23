@@ -18,12 +18,13 @@ enum class WeaponState : uint8
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnDeathSignature, ATPSCharacter*, actor);
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWeaponSwitchSignature, ATPSWeapon*, currentWeapon, ATPSWeapon*, previousWeapon);
-
 class ATPSWeapon;
 class ATPSPickups;
 class UBoxComponent;
 class UHealthComponent;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnWeaponSwitchSignature, ATPSWeapon*, currentWeapon, ATPSWeapon*, previousWeapon);
+
 UCLASS()
 class THIRDPERSONSHOOTER_API ATPSCharacter : public ACharacter
 {
@@ -131,6 +132,7 @@ protected:
 	FVector OriginalMeshLocation;
 
 	// Pickup
+	UPROPERTY(BlueprintReadOnly, Category = "Pickup Properties")
 	ATPSWeapon* pickableWeapon;
 	ATPSPickups* pickups;
 	TArray<AActor*> actorsToIgnoreForPickup;
@@ -163,6 +165,7 @@ public:
 	void FinishReload();
 	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnDeathSignature OnDeath;
+	UPROPERTY(BlueprintAssignable, Category = "Events")
 	FOnWeaponSwitchSignature OnWeaponSwitch;
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
