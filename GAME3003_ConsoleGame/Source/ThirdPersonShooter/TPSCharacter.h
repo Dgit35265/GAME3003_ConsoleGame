@@ -50,6 +50,7 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	FName HandSocketName;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "WeaponProperties")
 	ATPSWeapon* CurrentWeapon;
 	ATPSWeapon* PrevWeapon;
 	
