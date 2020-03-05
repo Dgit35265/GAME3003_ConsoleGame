@@ -14,17 +14,17 @@ const TArray<AActor*> USortActorByDistance::SortActorByDistance(UPARAM(ref)TArra
 		//Selection Sorting
 		for (int j = i; j < ArrayToSort.Num(); ++j)
 		{
-			float NewDis = (TargetLocation - ArrayToSort[j]->GetActorLocation()).Size();
-			float CurDis = (TargetLocation - CurrentActor->GetActorLocation()).Size();
+			float NewDis = FVector::Dist(TargetLocation, ArrayToSort[j]->GetActorLocation());
+			float CurDis = FVector::Dist(TargetLocation, CurrentActor->GetActorLocation());		
 			if (Ascending)
 			{
-				if (NewDis < CurDis)
+				if (NewDis <= CurDis)
 				{
 					CurrentActor = ArrayToSort[j];
 					CurrentIndex = j;
 				}
 			}
-			else
+			else if(!Ascending)
 			{
 				if (NewDis > CurDis)
 				{
@@ -35,7 +35,5 @@ const TArray<AActor*> USortActorByDistance::SortActorByDistance(UPARAM(ref)TArra
 			Swap(ArrayToSort[i], ArrayToSort[CurrentIndex]);
 		}
 	}
-
-
 	return ArrayToSort;
 }

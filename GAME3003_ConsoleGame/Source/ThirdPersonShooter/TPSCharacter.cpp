@@ -103,29 +103,30 @@ void ATPSCharacter::Tick(float DeltaTime)
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(this);
-	bool FootOnGround = false;
 	//Left Foot Line Trace
 	if (GetWorld()->LineTraceSingleByChannel(LeftFootHit, LeftFootLTraceStart, LeftFootLTraceEnd, ECollisionChannel::ECC_Visibility, QueryParams))
 	{
-		FootOnGround = true;
+		LeftFootOnGround = true;
 		DrawDebugLine(GetWorld(), LeftFootLTraceStart, LeftFootHit.Location, FColor::Green, false, 2 * DeltaTime, 0, 3);
 	}
 	else
 	{
+		LeftFootOnGround = false;
 		DrawDebugLine(GetWorld(), LeftFootLTraceStart, LeftFootLTraceEnd, FColor::Red, false, 2 * DeltaTime, 0, 3);
 	}
 	//Right Foot Line Trace
 	if (GetWorld()->LineTraceSingleByChannel(RightFootHit, RightFootLTraceStart, RightFootLTraceEnd, ECollisionChannel::ECC_Visibility, QueryParams))
 	{
-		FootOnGround = true;
+		RightFootOnGround = true;
 		DrawDebugLine(GetWorld(), RightFootLTraceStart, RightFootHit.Location, FColor::Green, false, 2 * DeltaTime, 0, 3);
 	}
 	else
 	{
+		RightFootOnGround = false;
 		DrawDebugLine(GetWorld(), RightFootLTraceStart, RightFootLTraceEnd, FColor::Red, false, 2 * DeltaTime, 0, 3);
 	}
 	// Set Left & Right Foot IK Location
-	if (FootOnGround && GetVelocity().Size() < 10)
+	if (LeftFootOnGround && RightFootOnGround && GetVelocity().Size() < 10)
 	{
 		//UE_LOG(LogTemp, Warning, TEXT("EnableIK"));
 		EnableIK = true;

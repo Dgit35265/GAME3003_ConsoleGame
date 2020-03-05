@@ -125,11 +125,13 @@ protected:
 	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
 	FVector RightFootIK;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "IK Properties")
-	float IKDistance = 50;
+	float IKDistance = 60;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "IK Properties")
-	float FootIKOffset = 13;
+	float FootIKOffset = 15;
 	UPROPERTY(BlueprintReadOnly, Category = "IK Properties")
 	bool EnableIK;
+	bool LeftFootOnGround;
+	bool RightFootOnGround;
 	FVector OriginalMeshLocation;
 
 	// Pickup
