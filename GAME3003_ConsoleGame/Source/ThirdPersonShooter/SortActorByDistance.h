@@ -15,5 +15,6 @@ class THIRDPERSONSHOOTER_API USortActorByDistance : public UBlueprintFunctionLib
     GENERATED_BODY()
 
     UFUNCTION(BlueprintCallable)
-    static const TArray<AActor*> SortActorByDistance(UPARAM(ref)TArray<AActor*>& ArrayToSort, const AActor* TargetActor, bool Ascending);
+    static const TArray<AActor*> SortActorByDistance(UPARAM(ref)TArray<AActor*>& ArrayToSort, const FVector& TargetLocation, bool Ascending, TArray<float>& distances);
+
 };
