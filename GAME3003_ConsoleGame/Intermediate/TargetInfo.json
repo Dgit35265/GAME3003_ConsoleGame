@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ThirdPersonShooter",
+			"Path": "C:\\Users\\Ding\\Documents\\GitHub\\GAME3003_ConsoleGame\\GAME3003_ConsoleGame\\Source\\ThirdPersonShooter.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ThirdPersonShooterEditor",
+			"Path": "C:\\Users\\Ding\\Documents\\GitHub\\GAME3003_ConsoleGame\\GAME3003_ConsoleGame\\Source\\ThirdPersonShooterEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
