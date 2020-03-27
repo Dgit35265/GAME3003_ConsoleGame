@@ -1,5 +1,0 @@
-C:\Users\Ding\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Development\ThirdPersonShooter\Definitions.ThirdPersonShooter.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-D:\Epic Games\UE_4.24\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-C:\Users\Ding\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Source\ThirdPersonShooter/HealthComponent.h
-C:\Users\Ding\Documents\GitHub\GAME3003_ConsoleGame\GAME3003_ConsoleGame\Intermediate\Build\Win64\UE4Editor\Inc\ThirdPersonShooter\HealthComponent.generated.h
